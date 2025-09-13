@@ -4,7 +4,7 @@ import { useSectionReveal } from "../../hooks/useSectionReveal";
 
 export default function Services() {
   const rootRef = useRef<HTMLElement | null>(null);
-  useSectionReveal(rootRef, { threshold: 0.2, rootMargin: "0px 0px -12% 0px" });
+  useSectionReveal(rootRef as React.RefObject<HTMLElement>, { threshold: 0.2, rootMargin: "0px 0px -12% 0px" });
 
   return (
     <section ref={rootRef} id="services" className="services fullscreen-section snap-section relative bg-[var(--color-bg)]">
