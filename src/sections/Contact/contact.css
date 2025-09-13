@@ -1,0 +1,81 @@
+.contact{
+    position: relative;
+    overflow-x: clip;
+  }
+  .contact::before{
+    content:"";
+    position:absolute; inset:-12% -12% auto -12%; height:70%;
+    background:
+      radial-gradient(820px 300px at 12% 18%, color-mix(in srgb, var(--color-primary-light) 18%, transparent), transparent),
+      radial-gradient(720px 260px at 88% 64%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent);
+    opacity:.22; z-index:0;
+  }
+  .contact > .container{ position:relative; z-index:1; }
+  
+  .contact-card{
+    border:1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: color-mix(in srgb, #fff 78%, transparent);
+    box-shadow: var(--shadow-1);
+    padding: 18px;
+  }
+  
+  /* Fields */
+  .field{ display:grid; gap:.35rem; }
+  .field label{ font-weight:600; font-size:.95rem; }
+  .field input, .field textarea{
+    border:1px solid var(--color-border);
+    border-radius: 12px;
+    padding:.65rem .8rem;
+    background: var(--color-surface);
+    color: var(--color-text);
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .field input:focus, .field textarea:focus{
+    border-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 18%, transparent);
+  }
+  
+  /* Button */
+  .btn-primary{
+    display:inline-flex; align-items:center; justify-content:center;
+    gap:.5rem; padding:.75rem 1rem;
+    border-radius: var(--radius-button);
+    border:1px solid var(--color-border);
+    background: linear-gradient(180deg, var(--color-primary-light), var(--color-primary));
+    color:#fff; font-weight:700;
+    box-shadow: var(--shadow-2);
+    transition: transform .15s ease, box-shadow .15s ease, filter .2s ease;
+  }
+  .btn-primary:hover{ transform: translateY(-1px); box-shadow: var(--shadow-3); filter: saturate(1.05); }
+  .btn-primary[disabled]{ opacity:.7; cursor:not-allowed; }
+  
+  /* Status messages */
+  .status{ margin-top:.25rem; font-size:.95rem; }
+  .status.ok{ color: #108a55; }
+  .status.err{ color: #b91c1c; }
+  
+  /* Bullets list */
+  .bullets{ margin:0; padding-left:1rem; color: var(--color-text); }
+  .bullets li{ margin:.2rem 0; color: var(--color-text-muted); }
+  
+  /* Alt contact note */
+  .note{
+    margin-top:1rem;
+    font-size:.9rem;
+    color: var(--color-text-muted);
+    border-left:3px solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+    padding-left:.75rem;
+  }
+  
+  /* Anti-bot honeypot */
+  .hp{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
+  
+  /* Fade reveal (same as other sections) */
+  .reveal{ opacity: 0; }
+  .reveal.in{ opacity: 1; transition: opacity .6s ease var(--d, 0ms); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .reveal.in{ opacity:1 !important; transition:none !important; }
+  }
+  

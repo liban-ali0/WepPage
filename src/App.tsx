@@ -5,6 +5,8 @@ import About from "./sections/About/About";
 import Services from "./sections/Services/Services";
 import Team from "./sections/Team/Team";
 import Roadmap from "./sections/Roadmap/Roadmap";
+import Contact from "./sections/Contact/Contact";
+import Advantages from "./sections/Advantages/Advantages";
 
 export default function App() {
   return (
@@ -14,8 +16,10 @@ export default function App() {
       <main id="content" className="snap-container">
         <About />
         <Services />
+        <Advantages />
         <Team />
         <Roadmap />
+        <Contact />
         
         <Footer />
       </main>

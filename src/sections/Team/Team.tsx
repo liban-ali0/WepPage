@@ -2,6 +2,13 @@ import { useRef } from "react";
 import "./team.css";
 import { useSectionReveal } from "../../hooks/useSectionReveal";
 
+import taghreedImg from "/img/taghreed_al_ajlan.jpg";
+import abdullahImg from "/img/abdullah_wagih.jpg";
+import malekImg from "/img/malek_fayyad.jpg";
+import mohamedImg from "/img/mohamed_ameer.jpg";
+import abdulrahmanImg from "/img/abdulrahman_bilani.jpg";
+import mutazImg from "/img/mutaz_haleem.jpg";
+
 type Member = {
   name: string;
   role: string;
@@ -15,12 +22,12 @@ export default function Team() {
 
   // Replace img with real URLs when ready
   const members: Member[] = [
-    { name: "Taghreed Al-Ajlan", role: "Founder & CEO", img: "https://placehold.co/600x750", featured: true },
-    { name: "Abdullah Wagih", role: "Co-Founder & COO", img: "https://placehold.co/600x750", featured: true },
-    { name: "Malek Fayyad", role: "Operation Manager", img: "https://placehold.co/480x600" },
-    { name: "Mohamed Ameer", role: "Logistics Manager", img: "https://placehold.co/480x600" },
-    { name: "Abdulrahman Bilani", role: "Digital Manager", img: "https://placehold.co/480x600" },
-    { name: "Mutaz Haleem", role: "Accredited Manager", img: "https://placehold.co/480x600" },
+    { name: "Taghreed Al-Ajlan", role: "Founder & CEO", img: taghreedImg, featured: true },
+    { name: "Abdullah Wagih", role: "Co-Founder & COO", img: abdullahImg, featured: true },
+    { name: "Malek Fayyad", role: "Operation Manager", img: malekImg },
+    { name: "Mohamed Ameer", role: "Logistics Manager", img: mohamedImg },
+    { name: "Abdulrahman Bilani", role: "Digital Manager", img: abdulrahmanImg },
+    { name: "Mutaz Haleem", role: "Accredited Manager", img: mutazImg },
   ];
 
   const featured = members.filter(m => m.featured);
