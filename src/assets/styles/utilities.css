@@ -24,6 +24,7 @@
   width: 100%;          /* full viewport width */
   display: grid;
   place-items: center;
+  overflow-x: hidden;
 }
 
 /* Footer also gets full screen */

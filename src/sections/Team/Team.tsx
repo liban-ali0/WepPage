@@ -35,9 +35,6 @@ export default function Team() {
       <div className="container">
         {/* Heading */}
         <div className="reveal text-center mb-10" style={{ ["--d" as any]: "0ms" }}>
-          <span className="inline-block px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-primary-light)]/10 text-[var(--color-primary)] text-xs font-bold">
-            Our Team
-          </span>
           <h2 className="font-heading text-4xl md:text-5xl mt-4">Meet the people behind BoostLink</h2>
           <p className="text-[var(--color-text-muted)] mt-3 max-w-2xl mx-auto">
             Founders highlighted first, followed by the core team. Real bios and links coming later.

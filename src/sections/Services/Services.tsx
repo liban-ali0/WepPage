@@ -10,9 +10,6 @@ export default function Services() {
     <section ref={rootRef} id="services" className="services fullscreen-section snap-section relative bg-[var(--color-bg)]">
       <div className="container">
         <div className="reveal text-center mb-8" style={{ ["--d" as any]: "0ms" }}>
-          <span className="inline-block px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-primary-light)]/10 text-[var(--color-primary)] text-xs font-bold">
-            Our Services
-          </span>
           <h2 className="font-heading text-4xl md:text-5xl mt-4">
             What we do (placeholder)
           </h2>

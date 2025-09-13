@@ -4,6 +4,7 @@ import Footer from "./components/layout/Footer";
 import About from "./sections/About/About";
 import Services from "./sections/Services/Services";
 import Team from "./sections/Team/Team";
+import Roadmap from "./sections/Roadmap/Roadmap";
 
 export default function App() {
   return (
@@ -14,7 +15,7 @@ export default function App() {
         <About />
         <Services />
         <Team />
-
+        <Roadmap />
         
         <Footer />
       </main>

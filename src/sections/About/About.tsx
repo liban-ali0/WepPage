@@ -15,12 +15,6 @@ export default function About() {
             <div className="container grid gap-12 md:grid-cols-2 items-center">
                 {/* Left: text */}
                 <div>
-                    <span
-                        className="reveal inline-block px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-primary-light)]/10 text-[var(--color-primary)] text-xs font-bold mb-4"
-                        style={{ ["--d" as any]: "0ms" }}
-                    >
-                        About Us
-                    </span>
 
                     <h2
                         className="reveal font-heading text-4xl md:text-5xl mb-4"
