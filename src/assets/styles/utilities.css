@@ -1,37 +1,40 @@
-.container{max-width:1240px;margin:0 auto;padding:0 1rem;}
-.glass{
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.glass {
   background: color-mix(in srgb, #fff 10%, transparent);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
 }
 
-/* ---- Full-screen snapping ---- */
-.snap-container{
-  height: 100svh;
+/* ---- Full-screen free scroll ---- */
+.main-container {
+  height: auto;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  scroll-padding-top: 4rem;  /* header height (h-16) */
-  overscroll-behavior-y: contain;
+  overflow-x: hidden;
 }
 
-.snap-section{
-  scroll-snap-align: start;
-  min-height: 100svh;
+/* Every section fills the screen */
+.fullscreen-section {
+  min-height: 100svh;   /* full viewport height */
+  width: 100%;          /* full viewport width */
   display: grid;
   place-items: center;
-  scroll-snap-stop: always;
 }
 
-/* Footer/non-snap content at the end of the scroll container */
-.snap-none{
-  scroll-snap-align: none;
-  min-height: auto;
+/* Footer also gets full screen */
+.fullscreen-footer {
+  min-height: 100svh;
+  width: 100%;
+  display: grid;
+  place-items: center;
 }
 
-/* snap the footer into view, but don't make it full-screen */
-.snap-footer{
-  scroll-snap-align: end;   /* or 'start' if you prefer */
-  scroll-snap-stop: always; /* make sure it actually snaps */
-  min-height: auto;
+/* Optional: global smooth scroll */
+html:focus-within {
+  scroll-behavior: smooth;
 }

@@ -12,11 +12,7 @@ export default function App() {
       <main id="content" className="snap-container">
         <About />
         <Services />
-
-        {/* Footer inside the snap container, but not snapping */}
-        <div className="snap-footer">
-          <Footer />
-        </div>
+        <Footer />
       </main>
     </>
   );

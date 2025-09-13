@@ -1,46 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import "./about.css";
+import { useSectionReveal } from "../../hooks/useSectionReveal";
 
 export default function About() {
     const rootRef = useRef<HTMLElement | null>(null);
-
-    // Simple reveal-on-scroll (staggered) — section-scoped
-    useEffect(() => {
-        const root = rootRef.current;
-        if (!root) return;
-
-        const items = Array.from(root.querySelectorAll<HTMLElement>(".reveal"));
-        // Respect reduced-motion automatically: if media query matches, just set in
-        const prefersReduced =
-            typeof window !== "undefined" &&
-            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        if (prefersReduced) {
-            items.forEach((el) => el.classList.add("in"));
-            return;
-        }
-
-        const io = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((e) => {
-                    if (e.isIntersecting) {
-                        (e.target as HTMLElement).classList.add("in");
-                        io.unobserve(e.target);
-                    }
-                });
-            },
-            { rootMargin: "0px 0px -15% 0px", threshold: 0.08 }
-        );
-
-        items.forEach((el) => io.observe(el));
-        return () => io.disconnect();
-    }, []);
+    useSectionReveal(rootRef, { threshold: 0.2, rootMargin: "0px 0px -12% 0px" });
 
     return (
         <section
             id="about"
             ref={rootRef}
-            className="about hero-screen snap-section relative bg-[var(--color-bg-dim)]"
+            className="about fullscreen-section hero-screen snap-section relative bg-[var(--color-bg-dim)]"
         >
             <div className="container grid gap-12 md:grid-cols-2 items-center">
                 {/* Left: text */}

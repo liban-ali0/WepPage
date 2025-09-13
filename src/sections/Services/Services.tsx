@@ -1,26 +1,13 @@
-import { useEffect, useRef } from "react";
+import {  useRef } from "react";
 import "./services.css";
+import { useSectionReveal } from "../../hooks/useSectionReveal";
 
 export default function Services() {
   const rootRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    const prefers = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const els = Array.from(root.querySelectorAll<HTMLElement>(".reveal"));
-    if (prefers) { els.forEach(el => el.classList.add("in")); return; }
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { (e.target as HTMLElement).classList.add("in"); obs.unobserve(e.target); }
-      });
-    }, { rootMargin: "0px 0px -15% 0px", threshold: 0.08 });
-    els.forEach(el => io.observe(el));
-    return () => io.disconnect();
-  }, []);
+  useSectionReveal(rootRef, { threshold: 0.2, rootMargin: "0px 0px -12% 0px" });
 
   return (
-    <section ref={rootRef} id="services" className="services snap-section relative bg-[var(--color-bg)]">
+    <section ref={rootRef} id="services" className="services fullscreen-section snap-section relative bg-[var(--color-bg)]">
       <div className="container">
         <div className="reveal text-center mb-8" style={{ ["--d" as any]: "0ms" }}>
           <span className="inline-block px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-primary-light)]/10 text-[var(--color-primary)] text-xs font-bold">
@@ -37,7 +24,7 @@ export default function Services() {
         {/* Card placeholders */}
         <div className="grid gap-5 md:grid-cols-3">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="reveal card">
+            <div key={i} className="reveal card" style={{ ["--d" as any]: `${80 * i}ms` }}>
               <div className="h-12 w-12 rounded-xl bg-[var(--color-primary)]/12 grid place-items-center font-bold text-[var(--color-primary)]">
                 {i}
               </div>
