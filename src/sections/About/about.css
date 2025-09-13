@@ -1,0 +1,60 @@
+/* Full-screen hero minus sticky header height (4rem = h-16) */
+.hero-screen {
+    min-height: calc(100svh - 4rem);
+    display: grid;
+    place-items: center;
+    padding-block: 3.5rem;
+    /* breathing room on small screens */
+}
+
+/* Background flourish (brand gradient) */
+.about {
+    position: relative;
+}
+
+.about::before {
+    content: "";
+    position: absolute;
+    inset: -10% -10% auto -10%;
+    height: 80%;
+    background:
+        radial-gradient(900px 360px at 10% 15%, color-mix(in srgb, var(--color-primary-light) 22%, transparent), transparent),
+        radial-gradient(900px 360px at 90% 40%, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent);
+    opacity: .35;
+    z-index: 0;
+}
+
+/* Reveal: drop-fade */
+.reveal {
+    opacity: 0;
+    transform: translateY(-12px) scale(.98);
+}
+
+.reveal.in {
+    animation: dropfade .7s cubic-bezier(.2, .8, .25, 1) var(--d, 0ms) both;
+}
+
+@keyframes dropfade {
+    from {
+        opacity: 0;
+        transform: translateY(-12px) scale(.98);
+        filter: saturate(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal,
+    .reveal.in {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}

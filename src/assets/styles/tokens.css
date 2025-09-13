@@ -1,0 +1,20 @@
+:root{
+    --color-primary:#6D28D9;
+    --color-primary-light:#A855F7;
+    --color-primary-dark:#4C1D95;
+    --color-accent:#9333EA;
+  
+    --color-bg:#FFFFFF;
+    --color-bg-dim:#F8F9FB;
+    --color-surface:#FFFFFF;
+    --color-border:rgba(109,40,217,.25);
+    --color-text:#0F0F0F;
+    --color-text-muted:#6B7280;
+  
+    --shadow-1:0 1px 3px rgba(0,0,0,.08);
+    --shadow-2:0 4px 6px rgba(0,0,0,.10);
+    --shadow-3:0 10px 15px rgba(0,0,0,.12);
+  
+    --radius-card:16px; --radius-button:12px; --radius-pill:9999px;
+  }
+  
