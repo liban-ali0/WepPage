@@ -2,12 +2,12 @@ import { useRef } from "react";
 import "./team.css";
 import { useSectionReveal } from "../../hooks/useSectionReveal";
 
-import taghreedImg from "/img/taghreed_al_ajlan.jpg";
-import abdullahImg from "/img/abdullah_wagih.jpg";
-import malekImg from "/img/malek_fayyad.jpg";
-import mohamedImg from "/img/mohamed_ameer.jpg";
-import abdulrahmanImg from "/img/abdulrahman_bilani.jpg";
-import mutazImg from "/img/mutaz_haleem.jpg";
+const taghreedImg = `${import.meta.env.BASE_URL}img/taghreed_al_ajlan.jpg`;
+const abdullahImg = `${import.meta.env.BASE_URL}/img/abdullah_wagih.jpg`;
+const malekImg = `${import.meta.env.BASE_URL}img/malek_fayyad.jpg`;
+const mohamedImg = `${import.meta.env.BASE_URL}img/mohamed_ameer.jpg`;
+const abdulrahmanImg = `${import.meta.env.BASE_URL}img/abdulrahman_bilani.jpg`;
+const mutazImg = `${import.meta.env.BASE_URL}img/mutaz_haleem.jpg`;
 
 type Member = {
   name: string;
