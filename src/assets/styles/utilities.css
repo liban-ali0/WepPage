@@ -152,3 +152,112 @@ html:focus-within {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* Header brand wordmark (responsive, never hidden) */
+.brand-wordmark {
+  display: inline-block;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  /* small → fluid → large */
+  font-size: clamp(1rem, 3.2vw + 0.25rem, 1.5rem);
+  letter-spacing: -0.01em; /* similar to tracking-tight */
+}
+
+/* If the header gets cramped on very small screens, nudge sizes a touch */
+@media (max-width: 360px) {
+  .brand-wordmark { font-size: clamp(0.95rem, 4.2vw, 1.25rem); }
+}
+
+/* Optional: ensure gradient text remains legible on glassy headers */
+@supports (-webkit-text-stroke: 1px transparent) {
+  .brand-wordmark {
+    -webkit-text-stroke: 0.25px rgba(0,0,0,0.15);
+  }
+}
+
+/* ===== Stylish footer background (brand-consistent) ===== */
+.hp-footer {
+  background:
+    radial-gradient(900px 360px at 12% 18%, color-mix(in srgb, var(--color-primary-light) 38%, transparent), transparent),
+    radial-gradient(900px 360px at 88% 42%, color-mix(in srgb, var(--color-primary) 20%, transparent), transparent),
+    var(--color-bg-dim);
+  background-blend-mode: normal;
+  position: relative;
+  overflow: clip;
+}
+
+/* Soft top divider glow instead of a hard border */
+.footer-top-glow {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in srgb, var(--color-primary) 40%, transparent),
+    transparent
+  );
+  box-shadow: 0 0 24px color-mix(in srgb, var(--color-primary) 40%, transparent);
+  opacity: .65;
+  pointer-events: none;
+}
+
+/* Links list: bigger targets, clean spacing */
+.footer-links {
+  display: grid;
+  gap: 10px;
+  color: var(--color-text-muted);
+}
+.footer-links a {
+  display: inline-block;
+  padding: 4px 0;
+  transition: color .2s ease, transform .2s ease, text-shadow .2s ease;
+  outline: none;
+}
+.footer-links a:hover { color: var(--color-text); transform: translateX(2px); }
+.footer-links a:focus-visible {
+  color: var(--color-text);
+  text-shadow: 0 0 0.01px currentColor; /* crisp on Windows */
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 36%, transparent);
+  border-radius: 8px;
+}
+
+/* Gradient brand wordmark */
+.brand-gradient-text {
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--color-primary) 70%, #fff),
+    color-mix(in srgb, var(--color-primary-light) 80%, #fff)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Bottom bar: subtle glass strip */
+.footer-bottom {
+  position: relative;
+  margin-top: 8px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: color-mix(in srgb, #fff 8%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 100%, transparent);
+}
+.footer-bottom-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+@media (min-width: 768px){
+  .footer-bottom-inner { flex-direction: row; }
+}
+
+/* Optional: darker mode fine-tune */
+:root.dark .footer-bottom {
+  background: color-mix(in srgb, #000 20%, transparent);
+  border-top-color: color-mix(in srgb, var(--color-primary) 18%, transparent);
+}

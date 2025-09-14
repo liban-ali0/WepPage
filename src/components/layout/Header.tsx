@@ -36,15 +36,15 @@ export default function Header() {
         <div className="container flex items-center justify-between h-16 md:h-20">
           {/* Brand */}
           <Link
-            to={{ pathname: "/", hash: "#landing" }}
+            to="/"
             className="flex items-center gap-2 font-extrabold"
             onClick={close}
             aria-label="BoostLink — Home"
           >
             <span className="w-10 h-10 grid place-items-center">
-              <img src="/img/logo.png" alt="BoostLink" loading="lazy" className="block h-8 w-auto" />
+              <img src={`${import.meta.env.BASE_URL}img/logo.png`} alt="BoostLink" loading="lazy" className="block h-8 w-auto" />
             </span>
-            <span className="hidden sm:inline text-gradient">BoostLink</span>
+            <span className="brand-wordmark text-gradient">BoostLink</span>
           </Link>
 
           {/* Desktop nav */}

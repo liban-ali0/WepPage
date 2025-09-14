@@ -49,7 +49,7 @@
     max-width: 960px;
     padding: clamp(18px, 2vw + 12px, 28px);
     border-radius: var(--radius-card);
-    background: rgba(12,12,16,0.52);
+    background: rgba(138, 56, 158, 0.52);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255,255,255,0.12);

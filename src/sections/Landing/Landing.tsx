@@ -18,7 +18,7 @@ export default function Landing() {
       aria-labelledby="landing-title"
     >
       {/* Background image */}
-      <div className="landing-bg" aria-hidden="true" />
+      <div className="landing-bg" aria-hidden="true" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}img/portfolio_group1.jpg)` }}/>
 
       {/* Gradient + subtle blur only under text */}
       <div className="landing-veil" aria-hidden="true" />
@@ -29,7 +29,7 @@ export default function Landing() {
 <div className="mb-3 flex items-center gap-3 select-none">
 
   <h2
-    className="text-gradient text-8xl font-bold tracking-tight">
+    className="text-gradient brand-title">
     BoostLink
   </h2>
 </div>

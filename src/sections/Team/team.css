@@ -1,127 +1,269 @@
+/* ========== existing styles you shared (unchanged) ========== */
 .team{
-    position: relative;
-    overflow-x: clip;
-  }
-  .team::before{
-    content:"";
-    position:absolute; inset:-10% -10% auto -10%; height:70%;
-    background:
-      radial-gradient(820px 300px at 12% 18%, color-mix(in srgb, var(--color-primary-light) 18%, transparent), transparent),
-      radial-gradient(720px 260px at 90% 60%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent);
-    opacity:.25; z-index:0;
-  }
-  .team > .container{ position:relative; z-index:1;   padding: 15vh 0 30vh 0;}
-  
-  .featured-card{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    border:1px solid var(--color-border);
-    border-radius: 24px;
-    padding: 14px;
-    background: color-mix(in srgb, #fff 78%, transparent);
-    box-shadow: var(--shadow-2);
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  @media (min-width: 768px){
-    .featured-card{
-      grid-template-columns: 2fr 3fr;
-      align-items: center;
-      padding: 18px;
-    }
-  }
-  .featured-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow-3); }
-  
-  .featured-photo{
-    width: 100%;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 3px solid var(--color-primary-light);
-    box-shadow: var(--shadow-1);
-  }
-  .featured-info .name{ font-weight: 700; font-size: clamp(1.1rem, 1.2vw + 1rem, 1.6rem); }
-  .featured-info .role{ color: var(--color-text-muted); }
-  
-  .member-card{
-    border:1px solid var(--color-border);
-    border-radius: 20px;
-    padding: 14px;
-    background: color-mix(in srgb, #fff 78%, transparent);
-    box-shadow: var(--shadow-1);
-    text-align: center;
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .member-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow-3); }
-  
-  .member-photo{
-    width: 100%;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    border-radius: 16px;
-    border: 3px solid var(--color-primary-light);
-    box-shadow: var(--shadow-1);
-  }
-  
-  .name{ font-weight: 600; }
-  .role{ color: var(--color-text-muted); font-size: 0.9rem; }
-  
-  .reveal { opacity: 0; }
-  .reveal.in { opacity: 1; transition: opacity .6s ease var(--d, 0ms); }
-  @media (prefers-reduced-motion: reduce){
-    .reveal, .reveal.in { opacity:1 !important; transition:none !important; }
-  }
+  position: relative;
+  overflow-x: clip;
+}
+.team::before{
+  content:"";
+  position:absolute; inset:-10% -10% auto -10%; height:70%;
+  background:
+    radial-gradient(820px 300px at 12% 18%, color-mix(in srgb, var(--color-primary-light) 18%, transparent), transparent),
+    radial-gradient(720px 260px at 90% 60%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent);
+  opacity:.25; z-index:0;
+}
+.team > .container{ position:relative; z-index:1;   padding: 15vh 0 30vh 0;}
 
-  /* 
-  .team {
-    position: relative;
-    overflow-x: clip;
+.featured-card{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  border:1px solid var(--color-border);
+  border-radius: 24px;
+  padding: 14px;
+  background: color-mix(in srgb, #fff 78%, transparent);
+  box-shadow: var(--shadow-2);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+@media (min-width: 768px){
+  .featured-card{
+    grid-template-columns: 2fr 3fr;
+    align-items: center;
+    padding: 18px;
   }
-  .team::before {
-    content: "";
-    position: absolute;
-    inset: -10% -10% auto -10%;
-    height: 70%;
-    background:
-      radial-gradient(800px 280px at 15% 20%, color-mix(in srgb, var(--color-primary-light) 18%, transparent), transparent),
-      radial-gradient(700px 240px at 85% 50%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent);
-    opacity: .25;
-    z-index: 0;
+  .member-card {
+    max-width: 320px;   /* optional cap */
+    margin-left: auto;
+    margin-right: auto;
   }
-  .team > .container {
-    position: relative;
-    z-index: 1;
-  }
-  
-  
-  .team-card {
-    padding: 1rem;
-    border-radius: 50%;
-    background: color-mix(in srgb, #fff 10%, transparent);
-    backdrop-filter: blur(10px);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
-    display: grid;
-    place-items: center;
-  }
-  .team-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-3);
-  }
-  
-  
-  .team-photo {
-    width: 100%;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--color-primary-light);
-    box-shadow: var(--shadow-1);
-  }
-  
-  
-  .reveal { opacity: 0; }
-  .reveal.in { opacity: 1; transition: opacity .6s ease var(--d, 0ms); }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal, .reveal.in { opacity: 1 !important; transition: none !important; }
-  }
-  */
+}
+.featured-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow-3); }
+
+.featured-photo{
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 20px;
+  border: none;
+  box-shadow: var(--shadow-1);
+}
+.featured-info .name{ font-weight: 700; font-size: clamp(1.1rem, 1.2vw + 1rem, 1.6rem); }
+.featured-info .role{ color: var(--color-text-muted); }
+
+.member-card{
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  background: color-mix(in srgb, #fff 78%, transparent);
+  box-shadow: var(--shadow-1);
+  text-align: center;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.member-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow-3); }
+
+.member-photo{
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 16px;
+  border: none;
+  box-shadow: var(--shadow-1);
+}
+
+.name{
+  font-weight: 600; 
+  font-size: 0.95rem; 
+  margin-top: 0.4rem;
+}
+
+.role{ color: var(--color-text-muted); font-size: 0.85rem; }
+
+.reveal { opacity: 0; }
+.reveal.in { opacity: 1; transition: opacity .6s ease var(--d, 0ms); }
+@media (prefers-reduced-motion: reduce){
+  .reveal, .reveal.in { opacity:1 !important; transition:none !important; }
+}
+
+
+/* ========== NEW: media tweaks for denser 4-up layout on wide screens ========== */
+@media (min-width: 1280px){
+.member-card { padding: 12px; }           /* slightly tighter so 4-up breathes */
+.team > .container { padding-bottom: 24vh; } /* trims bottom a bit for balance */
+}
+
+
+/* ========== NEW: hover/focus blur + dim on images (works immediately) ========== */
+.featured-card:hover .featured-photo,
+.featured-card:focus-within .featured-photo,
+.member-card:hover .member-photo,
+.member-card:focus-within .member-photo{
+filter: blur(2px) brightness(.9);
+transform: scale(1.02);
+transition: transform .25s ease, filter .25s ease;
+will-change: transform, filter;
+}
+
+@media (prefers-reduced-motion: reduce){
+.featured-card:hover .featured-photo,
+.featured-card:focus-within .featured-photo,
+.member-card:hover .member-photo,
+.member-card:focus-within .member-photo{
+  transform: none !important;
+  filter: blur(2px) brightness(.92); /* keep subtle blur without motion */
+}
+}
+
+
+/* ========== NEW: overlay layer (icons) ========== */
+/* Usage in TSX (coming next): wrap the <img> in a .card-media container and add a .card-overlay sibling
+ inside it that holds the social links list (.socials). */
+
+.card-media{
+position: relative;
+isolation: isolate; /* ensures overlay sits above the media only */
+border-radius: inherit;
+overflow: hidden;
+}
+
+.card-overlay{
+position: absolute;
+inset: 6px;                   /* respect photo border radius */
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+padding: 8px;
+background: color-mix(in srgb, rgba(0,0,0,0.55) 100%, transparent);
+-webkit-backdrop-filter: blur(6px);
+backdrop-filter: blur(6px);
+border-radius: inherit;
+opacity: 0;
+pointer-events: none;
+transform: translateY(4px);
+transition: opacity .25s ease, transform .25s ease, background .25s ease;
+z-index: 2;
+}
+
+/* Show overlay on hover and keyboard focus */
+.featured-card:hover .card-overlay,
+.featured-card:focus-within .card-overlay,
+.member-card:hover .card-overlay,
+.member-card:focus-within .card-overlay{
+opacity: 1;
+pointer-events: auto;
+transform: translateY(0);
+}
+
+/* Prefer reduced motion: reveal instantly */
+@media (prefers-reduced-motion: reduce){
+.card-overlay{
+  transition: none;
+  transform: none;
+}
+}
+
+/* Light theme adjust (optional): slightly lighter glass */
+:root:not(.dark) .card-overlay{
+background: color-mix(in srgb, rgba(255,255,255,0.18) 100%, transparent);
+}
+
+
+/* ========== NEW: icon row inside overlay ========== */
+.socials{
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.icon-btn{
+width: 44px;
+height: 44px;
+border-radius: 999px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+background: color-mix(in srgb, var(--color-primary-light) 18%, rgba(0,0,0,0.35));
+color: #fff;
+border: 1px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+box-shadow: 0 4px 14px rgba(0,0,0,.18);
+transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+outline: none;
+}
+
+.icon-btn:hover{
+transform: translateY(-2px);
+box-shadow: 0 8px 22px rgba(0,0,0,.22);
+}
+
+.icon-btn:active{
+transform: translateY(0);
+box-shadow: 0 4px 14px rgba(0,0,0,.18);
+}
+
+.icon-btn:focus-visible{
+box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 45%, transparent), 0 6px 20px rgba(0,0,0,.22);
+}
+
+/* Staggered appearance of icons */
+.card-overlay .icon-btn:nth-child(1){ transition-delay: 40ms; }
+.card-overlay .icon-btn:nth-child(2){ transition-delay: 80ms; }
+.card-overlay .icon-btn:nth-child(3){ transition-delay: 120ms; }
+
+/* Optional: brand-specific hover tints */
+.icon-btn[data-brand="linkedin"]:hover { background: #0a66c2; }
+.icon-btn[data-brand="x"]:hover        { background: #111; }
+.icon-btn[data-brand="instagram"]:hover{
+/* subtle instagram tint without heavy gradient */
+background: radial-gradient(120% 120% at 80% 10%, #feda75, #d62976 55%, #962fbf 85%);
+}
+
+/* Ensure icons (svgs) scale nicely inside buttons */
+.icon-btn > svg{
+width: 22px;
+height: 22px;
+display: block;
+}
+
+/* ========== NEW: featured vs member media wrapper targets ========== */
+/* If you wrap the image area with .card-media in both card types, the overlay will cover only the image, not the text. */
+.featured-card .card-media,
+.member-card .card-media{
+border-radius: inherit;
+}
+
+/* Keep overlays non-interfering with clicks to the image caption area */
+.featured-info, .name, .role { position: relative; z-index: 1; }
+
+/* 1) Give the media wrapper its own radius that matches the image */
+.member-card { --media-radius: 16px; }    /* matches .member-photo */
+.featured-card { --media-radius: 20px; }  /* matches .featured-photo */
+
+.card-media{
+  position: relative;
+  isolation: isolate;
+  border-radius: var(--media-radius);  /* was: inherit */
+  overflow: hidden;                    /* ensure overlay clips to photo */
+}
+
+/* 2) Make the overlay cover the media 1:1 with the same radius */
+.card-overlay{
+  position: absolute;
+  inset: 0;                            /* was: inset: 6px; */
+  border-radius: inherit;              /* now matches photo exactly */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px;
+  background: color-mix(in srgb, rgba(0,0,0,0.55) 100%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity .25s ease, transform .25s ease, background .25s ease;
+  z-index: 2;
+}
+
+.card-media { cursor: pointer; }
+.card-media:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; }
+.card-media { -webkit-tap-highlight-color: transparent; }

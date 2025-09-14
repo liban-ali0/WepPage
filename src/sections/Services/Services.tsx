@@ -5,10 +5,11 @@ import { useSectionReveal } from "../../hooks/useSectionReveal";
 import { services } from "../../content/boostlink";
 import "../../assets/styles/utilities.css";
 // swap these with your real images
+
 const serviceImages = [
-  { src: "/img/services/staffing.jpg", alt: "Professional staffing team on-site" },
-  { src: "/img/services/production.png", alt: "Event production and stage setup" },
-  { src: "/img/services/logistics.jpg", alt: "Logistics, safety, and coordination in action" },
+  { src: `${import.meta.env.BASE_URL}img/services/staffing.jpg`, alt: "Professional staffing team on-site" },
+  { src: `${import.meta.env.BASE_URL}img/services/production.png`, alt: "Event production and stage setup" },
+  { src: `${import.meta.env.BASE_URL}img/services/logistics.jpg`, alt: "Logistics, safety, and coordination in action" },
 ];
 
 export default function Services() {
@@ -22,7 +23,7 @@ export default function Services() {
     <section
       ref={rootRef}
       id="services"
-      className="services fullscreen-section  hp-services"
+      className="services fullscreen-section snap-section hp-services"
       aria-labelledby="services-heading"
     >
       <div className="container">
