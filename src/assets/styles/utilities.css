@@ -39,3 +39,116 @@
 html:focus-within {
   scroll-behavior: smooth;
 }
+
+
+/* ===== Home page per-section flourishes ===== */
+/* Tip: swap var(--color-bg) / var(--color-bg-dim) to tune contrast per section. */
+
+.hp-landing {
+  background:
+    radial-gradient(900px 360px at 12% 18%, color-mix(in srgb, var(--color-primary-light) 42%, transparent), transparent),
+    radial-gradient(900px 360px at 88% 42%, color-mix(in srgb, var(--color-primary) 24%, transparent), transparent),
+    var(--color-bg-dim);
+  background-blend-mode: normal;
+}
+
+.hp-about {
+  background:
+    radial-gradient(900px 360px at 12% 18%, color-mix(in srgb, var(--color-primary-light) 22%, transparent), transparent),
+    radial-gradient(900px 360px at 88% 42%, color-mix(in srgb, var(--color-primary) 44%, transparent), transparent),
+    var(--color-bg-dim);
+  background-blend-mode: normal;
+}
+
+.hp-services {
+  background:
+    radial-gradient(820px 320px at 85% 22%, color-mix(in srgb, var(--color-primary) 24%, transparent), transparent),
+    radial-gradient(760px 300px at 10% 70%, color-mix(in srgb, var(--color-primary-light) 36%, transparent), transparent),
+    var(--color-bg);
+}
+
+.hp-advantages {
+  background:
+    radial-gradient(780px 300px at 14% 28%, color-mix(in srgb, var(--color-primary-light) 55%, transparent), transparent),
+    radial-gradient(820px 320px at 92% 68%, color-mix(in srgb, var(--color-primary) 32%, transparent), transparent),
+    var(--color-bg-dim);
+}
+
+.hp-team {
+  background:
+    radial-gradient(860px 320px at 86% 30%, color-mix(in srgb, var(--color-primary) 54%, transparent), transparent),
+    radial-gradient(740px 280px at 12% 72%, color-mix(in srgb, var(--color-primary-light) 44%, transparent), transparent),
+    var(--color-bg);
+}
+
+.hp-roadmap {
+  background:
+    radial-gradient(820px 320px at 18% 26%, color-mix(in srgb, var(--color-primary-light) 26%, transparent), transparent),
+    radial-gradient(780px 300px at 84% 64%, color-mix(in srgb, var(--color-primary) 32%, transparent), transparent),
+    var(--color-bg-dim);
+}
+
+.hp-contact {
+  background:
+    radial-gradient(760px 300px at 80% 58%, color-mix(in srgb, var(--color-primary) 34%, transparent), transparent),
+    radial-gradient(780px 300px at 16% 30%, color-mix(in srgb, var(--color-primary-light) 26%, transparent), transparent),
+    var(--color-bg);
+}
+
+/* Respect reduced motion: avoid visual shifts if you later animate sizes/positions */
+@media (prefers-reduced-motion: reduce) {
+  .hp-landing, .hp-services, .hp-advantages, .hp-team, .hp-roadmap, .hp-contact {
+    background-attachment: scroll;
+  }
+}
+
+
+/* Hamburger -> X animation */
+.hamburger {
+  position: relative;
+  width: 22px; height: 16px;
+  display: inline-block;
+}
+.hamburger .line {
+  position: absolute; left: 0; right: 0;
+  height: 2px; background: currentColor; border-radius: 2px;
+  transition: transform .25s ease, opacity .2s ease, top .25s ease, bottom .25s ease;
+}
+.hamburger .top { top: 0; }
+.hamburger .mid { top: 7px; }
+.hamburger .bot { bottom: 0; }
+
+.hamburger.is-open .top { top: 7px; transform: rotate(45deg); }
+.hamburger.is-open .mid { opacity: 0; transform: translateX(6px); }
+.hamburger.is-open .bot { bottom: 7px; transform: rotate(-45deg); }
+
+/* Overlay animations */
+@keyframes drop-in {
+  from { transform: translateY(-16px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+@keyframes fade-in {
+  from { opacity: 0; } to { opacity: 1; }
+}
+.animate-drop-in { animation: drop-in .28s ease forwards; }
+.animate-fade-in { animation: fade-in .24s ease forwards; }
+
+/* Focus ring helper if you haven't added it yet */
+.focus-visible\:outline-ring:focus-visible,
+.focus-visible\:outline-ring:focus {
+  outline: 3px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
+  outline-offset: 2px;
+}
+
+.text-gradient {
+  background-image: linear-gradient(
+    45deg,
+    #7b3af5,
+    #9a5cff,
+    #b180f7,
+    #c5a1ff
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

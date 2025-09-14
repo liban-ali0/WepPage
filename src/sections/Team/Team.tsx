@@ -37,7 +37,7 @@ export default function Team() {
     <section
       id="team"
       ref={rootRef}
-      className="team fullscreen-section relative bg-[var(--color-bg-dim)]"
+      className="team fullscreen-section relative hp-team "
     >
       <div className="container">
         {/* Heading */}

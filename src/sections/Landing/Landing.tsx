@@ -1,54 +1,52 @@
 import { useRef } from "react";
 import "./landing.css";
 import { useSectionReveal } from "../../hooks/useSectionReveal";
+import "../../assets/styles/utilities.css";
 
 export default function Landing() {
-    const rootRef = useRef<HTMLElement | null>(null);
-    useSectionReveal(rootRef as React.RefObject<HTMLElement>, { threshold: 0.2, rootMargin: "0px 0px -12% 0px" });
+  const rootRef = useRef<HTMLElement | null>(null);
+  useSectionReveal(rootRef as React.RefObject<HTMLElement>, {
+    threshold: 0.2,
+    rootMargin: "0px 0px -12% 0px",
+  });
 
-    return (
-        <section
-            id="landing.css"
-            ref={rootRef}
-            className="landing.css fullscreen-section hero-screen snap-section relative bg-[var(--color-bg-dim)]"
-        >
-            <div className="container grid gap-12 md:grid-cols-2 items-center">
-                {/* Left: text */}
-                <div>
+  return (
+    <section
+      id="landing"
+      ref={rootRef}
+      className="landing fullscreen-section hero-screen hp-landing"
+      aria-labelledby="landing-title"
+    >
+      {/* Background image */}
+      <div className="landing-bg" aria-hidden="true" />
 
-                    <h2
-                        className="reveal font-heading text-4xl md:text-5xl mb-4"
-                        style={{ ["--d" as any]: "80ms" }}
-                    >
-                        We connect brands with people
-                    </h2>
+      {/* Gradient + subtle blur only under text */}
+      <div className="landing-veil" aria-hidden="true" />
 
-                    <p
-                        className="reveal text-[var(--color-text-muted)] leading-relaxed mb-6 max-w-prose"
-                        style={{ ["--d" as any]: "140ms" }}
-                    >
-                        Placeholder text — this will later be replaced with real content.
-                        Use this area to briefly introduce BoostLink, explain the mission,
-                        and highlight what makes the company unique.
-                    </p>
+      <div className="container">
+        <div className="reveal landing-copy" style={{ ["--d" as any]: "80ms" }}>
+          {/* Brand lockup (text-only) */}
+<div className="mb-3 flex items-center gap-3 select-none">
 
-                    <a
-                        href="#services"
-                        className="reveal inline-flex px-5 py-3 rounded-[var(--radius-button)] bg-[var(--color-primary)] text-white font-semibold shadow-md hover:shadow-lg transition"
-                        style={{ ["--d" as any]: "200ms" }}
-                    >
-                        Explore Services
-                    </a>
-                </div>
+  <h2
+    className="text-gradient text-8xl font-bold tracking-tight">
+    BoostLink
+  </h2>
+</div>
 
-                {/* Right: visual placeholder */}
-                <div
-                    className="reveal h-64 md:h-80 rounded-[var(--radius-card)] border border-dashed border-[var(--color-border)] grid place-items-center text-[var(--color-text-muted)]"
-                    style={{ ["--d" as any]: "120ms" }}
-                >
-                    <img src="/img/portfolio_group1.jpg" alt="" />
-                </div>
-            </div>
-        </section>
-    );
+          
+          <h1 id="landing-title" className="landing-title mt-4 mb-3">
+            Your Partner in Events & Staffing Excellence
+          </h1>
+
+          <p className="landing-sub mb-6">
+            With accredited expertise and agile teams, BoostLink handles every detail—production,
+            operations, logistics, and staffing—so you can focus on impact.
+          </p>
+
+          <a href="/services" className="btn btn-primary">Explore Services</a>
+        </div>
+      </div>
+    </section>
+  );
 }

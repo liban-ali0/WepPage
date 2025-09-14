@@ -1,46 +1,158 @@
-.advantages{
-    position: relative;
-    overflow-x: clip;
-  }
-  .advantages::before{
-    content:"";
-    position:absolute; inset:-12% -12% auto -12%; height:70%;
-    background:
-      radial-gradient(840px 320px at 14% 20%, color-mix(in srgb, var(--color-primary-light) 18%, transparent), transparent),
-      radial-gradient(760px 280px at 90% 64%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent);
-    opacity:.25; z-index:0;
-  }
-  .advantages > .container{ position:relative; z-index:1; }
-  
-  /* Card */
-  .adv-card{
-    display:grid; grid-template-columns: 64px 1fr; gap:14px;
-    border:1px solid var(--color-border);
-    border-radius: 18px;
-    background: color-mix(in srgb, #fff 80%, transparent);
-    box-shadow: var(--shadow-1);
-    padding:16px;
-    transition: transform .15s ease, box-shadow .15s ease, border-color .2s ease;
-  }
-  .adv-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow-3); border-color: color-mix(in srgb, var(--color-primary) 22%, transparent); }
-  
-  .adv-icon{
-    width: 52px; height: 52px; border-radius: 14px;
-    display:grid; place-items:center;
-    color: var(--color-primary);
-    background: color-mix(in srgb, var(--color-primary-light) 12%, transparent);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-1);
-  }
-  .icon{ width: 28px; height: 28px; }
-  
-  .adv-title{ font-weight: 700; color: var(--color-primary-dark); }
-  .adv-desc{ color: var(--color-text-muted); margin-top: .25rem; }
-  
-  /* Fade reveal */
-  .reveal{ opacity: 0; }
-  .reveal.in{ opacity: 1; transition: opacity .6s ease var(--d, 0ms); }
-  @media (prefers-reduced-motion: reduce){
-    .reveal, .reveal.in{ opacity:1 !important; transition:none !important; }
-  }
-  
+/* Section flourish (subtle) */
+.advantages {
+  position: relative;
+  overflow-x: clip; /* or hidden */
+}
+
+/* Keep the flourish full-bleed without causing scrollbars */
+.advantages::before {
+  content: "";
+  position: absolute;
+  inset: 0;                 /* was: -10% -10% auto -10% */
+  height: 70%;
+  background:
+    radial-gradient(800px 300px at 85% 20%, color-mix(in srgb, var(--color-primary-light) 18%, transparent), transparent),
+    radial-gradient(700px 260px at 10% 60%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent);
+  opacity: .22;
+  z-index: 0;
+  pointer-events: none;     /* safety */
+}
+
+.advantages > .container { position: relative; z-index: 1; overflow-x: clip; }
+
+/* Grid with equal-height cards */
+.adv-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(14px, 2.2vw, 20px);
+  align-items: stretch;
+}
+@media (min-width: 900px) {
+  .adv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Card */
+.adv-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+  height: 100%;
+  border: 1px solid color-mix(in srgb, var(--color-border) 90%, transparent);
+  border-radius: var(--radius-card);
+  padding: 20px 22px;                 /* denser but roomier */
+  background: color-mix(in srgb, #fff 86%, transparent);
+  box-shadow: var(--shadow-1);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .2s ease;
+  overflow: clip;
+  min-height: 128px;                  /* equalize tile height */
+}
+
+/* Subtle tile flourish per card */
+.adv-card::before {
+  content: "";
+  position: absolute;
+  inset: -20% auto auto -20%;
+  width: 420px; height: 260px;
+  background:
+    radial-gradient(420px 260px at 60% 60%, color-mix(in srgb, var(--color-primary-light) 20%, transparent), transparent);
+  opacity: .12;
+  overflow: clip;
+  pointer-events: none;
+}
+
+/* Hover: lift, subtle border, icon glow only */
+.adv-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--color-primary) 22%, transparent);
+  box-shadow: var(--shadow-3);
+}
+.adv-card:hover .adv-icon {
+  filter: drop-shadow(0 8px 16px color-mix(in srgb, var(--color-primary) 40%, transparent));
+}
+
+/* Focus-visible (keyboard a11y) */
+.adv-card:focus-within {
+  outline: 3px solid color-mix(in srgb, var(--color-primary) 32%, transparent);
+  outline-offset: 2px;
+}
+
+/* Icon chip (bigger + optical alignment) */
+.adv-icon {
+  width: 3.5rem;   /* ~56px */
+  height: 3.5rem;
+  transform: translateY(2px); /* align with title baseline */
+  border-radius: 999px;
+  display: grid; place-items: center;
+  color: #fff;
+  background: radial-gradient(circle at 35% 30%, var(--color-primary-light), var(--color-primary));
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+  flex: 0 0 auto;
+  overflow: clip;
+}
+.adv-icon svg { width: 24px; height: 24px; display: block; }
+
+/* Body */
+.adv-body { min-height: 100%; overflow: clip;}
+
+/* Title: tighter & stronger */
+.adv-title {
+  font-weight: 800;
+  font-size: clamp(1.06rem, 0.45vw + 1rem, 1.18rem); /* +~1px desktop */
+  line-height: 1.25;
+  margin: 2px 0 4px 0;
+  position: relative;
+}
+.adv-title::after {
+  content: "";
+  display: block;
+  width: 32px; height: 3px;          /* tighter underline */
+  margin-top: .35rem;                 /* closer to title */
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary));
+}
+.adv-card:hover .adv-title::after { width: 38px; } /* tiny grow on hover */
+
+/* Description: slightly darker for contrast */
+.adv-desc {
+  color: color-mix(in srgb, var(--color-text-muted) 85%, #000 15%);
+  font-size: .96rem;
+  line-height: 1.6;
+  overflow: clip;
+  margin-bottom: .35rem;              /* spacing before link */
+}
+
+/* Quiet action link with hover + a11y focus */
+.adv-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  margin-top: .2rem;
+  font-weight: 600;
+  font-size: .9rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 70%, transparent);
+  padding-bottom: 1px;
+  border-radius: 4px;
+  transition: border-bottom-width .12s ease, transform .12s ease, text-shadow .12s ease;
+}
+.adv-link:hover {
+  transform: translateY(-1px);
+  text-shadow: 0 1px 0 rgba(0,0,0,.05);
+  border-bottom-width: 2px;
+}
+.adv-link span { transition: transform .12s ease; }
+.adv-link:hover span { transform: translateX(3px); }
+.adv-link:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
+  outline-offset: 2px;
+}
+
+/* Reveal */
+.reveal { opacity: 0; }
+.reveal.in { opacity: 1; transition: opacity .6s ease var(--d, 0ms); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.in { opacity: 1 !important; transition: none !important; }
+}

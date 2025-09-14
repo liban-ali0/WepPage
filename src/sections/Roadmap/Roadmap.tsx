@@ -33,7 +33,7 @@ export default function Roadmap() {
     <section
       id="roadmap"
       ref={rootRef}
-      className="roadmap fullscreen-section relative bg-[var(--color-bg)]"
+      className="roadmap fullscreen-section relative hp-roadmap "
       aria-labelledby="roadmap-heading"
     >
       <div className="container">

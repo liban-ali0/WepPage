@@ -122,3 +122,30 @@
     .reveal, .reveal.in{ opacity:1 !important; transition:none !important; }
   }
   
+  @media (max-width: 900px) {
+    /* rail + node already set … */
+  
+    /* two columns [rail][card] already set … */
+  
+    /* hide curves */
+    .rm-curve { display: none; }
+  
+    /* make LEFT behave like RIGHT */
+    .rm-item.left .rm-card {
+      grid-column: 2 / -1;
+      justify-self: stretch;
+      max-width: none;
+      margin: 0 12px !important;   /* same as right; kill desktop margins */
+      padding: 14px 16px;
+    }
+  
+    /* ensure RIGHT is also uniform */
+    .rm-item.right .rm-card {
+      grid-column: 2 / -1;
+      justify-self: stretch;
+      max-width: none;
+      margin: 0 12px !important;
+      padding: 14px 16px;
+    }
+  }
+  

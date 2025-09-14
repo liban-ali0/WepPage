@@ -1,6 +1,6 @@
 // src/pages/Home.tsx
-import Services from "../sections/Services/Services";
 import Team from "../sections/Team/Team";
+import About from "../sections/About/About";
 import Roadmap from "../sections/Roadmap/Roadmap";
 import Contact from "../sections/Contact/Contact";
 import Advantages from "../sections/Advantages/Advantages";
@@ -29,10 +29,10 @@ export default function Home() {
     return (
         <main id="content" className="snap-container">
             <Landing />
-            <Services />
+            <About />
             <Advantages />
-            <Team />
             <Roadmap />
+            <Team />
             <Contact />
         </main>
     );

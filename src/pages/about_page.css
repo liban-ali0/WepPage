@@ -1,61 +1,178 @@
-/* src/pages/about-page.css */
+/* ===== Shared section shell ===== */
+.cp-section {
+  min-height: 100svh;                 /* full viewport height */
+  display: grid;
+  place-items: center;
+  padding-block: 5.5rem;              /* sticky header + air */
+  position: relative;
+  overflow: hidden;
+}
 
-/* Full-screen sections for the About page */
-.ap-section {
-    min-height: 100svh;      /* full viewport height, mobile-safe */
-    display: grid;
-    place-items: center;     /* center the container vertically */
-    padding-block: 4.5rem;   /* leave space for sticky header + breathing room */
-    position: relative;
-    overflow: hidden;
-  }
-  
-  /* Hero background flourish */
-  .ap-hero {
-    background:
-      radial-gradient(900px 360px at 10% 15%, color-mix(in srgb, var(--color-primary-light) 22%, transparent), transparent),
-      radial-gradient(900px 360px at 90% 40%, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent),
-      var(--color-bg-dim);
-    background-blend-mode: normal;
-  }
-  
-  /* Alternating subtle backgrounds for sections */
-  .ap-vision {
-    background:
-      radial-gradient(800px 320px at 14% 20%, color-mix(in srgb, var(--color-primary-light) 14%, transparent), transparent),
-      var(--color-bg);
-  }
-  
-  .ap-mission {
-    background:
-      radial-gradient(820px 300px at 86% 65%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent),
-      var(--color-bg-dim);
-  }
-  
-  /* Shared card style */
-  .ap-card {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    background: color-mix(in srgb, #fff 80%, transparent);
-    box-shadow: var(--shadow-1);
-    padding: 16px;
-  }
-  
-  /* Reveal animation (same contract as the rest of the site) */
-  .reveal { opacity: 0; }
-  .reveal.in {
-    opacity: 1;
-    transition: opacity .6s ease var(--d, 0ms);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal,
-    .reveal.in { opacity: 1 !important; transition: none !important; }
-  }
-  
-  /* Container utility to match the site scale if not using Tailwind's .container */
-  .container {
-    max-width: 1240px;
-    margin-inline: auto;
-    padding-inline: 1rem;
-  }
-  
+/* Consistent container (matches your utilities) */
+.container {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* ===== WHO WE ARE ===== */
+.cp-who {
+  background:
+    radial-gradient(1000px 420px at 72% 42%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent),
+    radial-gradient(900px 360px at 12% 82%, color-mix(in srgb, var(--color-primary-light) 18%, transparent), transparent),
+    var(--color-bg-dim);
+}
+
+.cp-h1 {
+  font-family: var(--font-heading, inherit);
+  font-weight: 900;
+  font-size: clamp(2rem, 2.2vw + 1.5rem, 3rem);
+  line-height: 1.05;
+  margin-bottom: .85rem;
+}
+
+.cp-who-body {
+  display: grid;
+  gap: 1rem;
+  max-width: 80ch;
+}
+
+.cp-lede {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* ===== Vision/Mission wrappers (alt backgrounds) ===== */
+.cp-vm {
+  background: var(--color-bg);
+}
+.cp-vm.cp-vm-a {
+  background:
+    radial-gradient(820px 340px at 14% 24%, color-mix(in srgb, var(--color-primary-light) 14%, transparent), transparent),
+    var(--color-bg);
+}
+.cp-vm.cp-vm-b {
+  background:
+    radial-gradient(860px 320px at 86% 70%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent),
+    var(--color-bg-dim);
+}
+
+/* ===== VM Card ===== */
+.cp-vm-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: color-mix(in srgb, #fff 86%, transparent);
+  box-shadow: var(--shadow-2);
+  padding: clamp(16px, 2vw + 10px, 28px);
+  max-width: 1000px;
+}
+
+.cp-vm-head {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: .35rem;
+}
+
+.cp-pill {
+  font-size: .85rem;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-primary) 16%, transparent);
+  color: var(--color-primary);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
+}
+
+.cp-title {
+  font-family: var(--font-heading, inherit);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 1.2vw + 1.2rem, 2.2rem);
+  line-height: 1.1;
+}
+
+.cp-copy {
+  color: var(--color-text);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin-top: .25rem;
+}
+
+/* ===== Slide-in animation (left/right) ===== */
+.slide-in {
+  opacity: 0;
+  transform: translateX(var(--dx, 0));
+}
+.slide-in.left  { --dx: -48px; }
+.slide-in.right { --dx:  48px; }
+
+.reveal.in.slide-in {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity .6s ease var(--d, 0ms),
+    transform .6s ease var(--d, 0ms);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.in { opacity: 1 !important; transition: none !important; }
+  .slide-in, .reveal.in.slide-in { transform: none !important; }
+}
+
+
+/* Who we are: blurred/dim background image */
+.cp-who::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/img/portfolio_group1.jpg") center/cover no-repeat;
+  filter: blur(8px) saturate(0.9) brightness(0.65);
+  transform: scale(1.04); /* hide blur edges */
+  z-index: 0;
+}
+.cp-who::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* stronger dim + subtle vignette */
+  background:
+    radial-gradient(60% 50% at 35% 40%, rgba(255,255,255,.14), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.52));
+  box-shadow: inset 0 0 160px rgba(0,0,0,.35);
+  z-index: 0;
+}
+.cp-who > .container { position: relative; z-index: 1; }
+
+/* VM: one container with two stacked rows */
+.cp-vm-grid {
+  display: grid;
+  gap: clamp(20px, 3vw, 28px);
+  width: 100%;
+}
+/* Glass panel that keeps text super legible */
+.cp-who-panel {
+  max-width: 960px;
+  padding: clamp(18px, 2vw + 12px, 28px);
+  border-radius: var(--radius-card);
+  background: rgba(12, 12, 16, 0.46);              /* semi-dark */
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,.28);
+  color: #fff;
+}
+
+/* Light-on-dark text */
+.cp-who-panel .cp-h1 {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+}
+.cp-who-panel .cp-lede {
+  color: rgba(255,255,255,0.88);
+}
+/* Optional: slight visual change for the second row */
+.cp-vm-card.alt {
+  background: color-mix(in srgb, #fff 82%, transparent);
+  border-color: color-mix(in srgb, var(--color-primary) 18%, var(--color-border) 82%);
+}

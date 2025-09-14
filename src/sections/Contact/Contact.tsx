@@ -61,7 +61,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={rootRef}
-      className="contact fullscreen-section relative bg-[var(--color-bg)]"
+      className="contact fullscreen-section relative hp-contact "
       aria-labelledby="contact-heading"
     >
       <div className="container">
