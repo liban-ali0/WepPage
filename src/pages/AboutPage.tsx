@@ -3,6 +3,8 @@ import "./about_page.css";
 import { useSectionReveal } from "../hooks/useSectionReveal";
 import { about as aboutData } from "../content/boostlink";
 
+import ScrollToTop from "../components/ScrollToTop";
+
 export default function AboutPage() {
   const whoRef = useRef<HTMLElement | null>(null);
   const visionRef = useRef<HTMLElement | null>(null);
@@ -24,6 +26,7 @@ export default function AboutPage() {
 
   return (
     <main id="content">
+      <ScrollToTop />
       {/* ===== Who we are ===== */}
       <section id="who" ref={whoRef} className="cp-section cp-who">
         <div className="container">

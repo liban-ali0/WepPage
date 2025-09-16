@@ -131,7 +131,7 @@ export default function Contact() {
           <aside className="reveal contact-card" style={{ ["--d" as any]: "200ms" }}>
             <h3 className="font-semibold mb-2">Prefer email?</h3>
             <p className="text-[var(--color-text-muted)] mb-4">
-              Email us at <a href="mailto:hello@boostlink.com" className="link">hello@boostlink.com</a>.
+              Email us at <a href="mailto:info@boostlink.sa" className="link">info@boostlink.sa</a>.
             </p>
 
             <h4 className="font-semibold mb-2">What to include</h4>

@@ -4,6 +4,7 @@ import About from "../sections/About/About";
 import Roadmap from "../sections/Roadmap/Roadmap";
 import Contact from "../sections/Contact/Contact";
 import Advantages from "../sections/Advantages/Advantages";
+import ScrollToTop from "../components/ScrollToTop";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Landing from "../sections/Landing/Landing";
@@ -28,6 +29,7 @@ export default function Home() {
 
     return (
         <main id="content" className="snap-container">
+            <ScrollToTop />
             <Landing />
             <About />
             <Advantages />

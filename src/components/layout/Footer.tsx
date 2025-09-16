@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="hp-footer relative mt-16">
@@ -19,13 +21,13 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold text-[var(--color-text)] mb-3">Quick Links</h4>
           <nav className="footer-links">
-            <a href="#landing">Home</a>
-            <a href="/about">About Us</a>
-            <a href="/services">Our Services</a>
-            <a href="#advantages">Our Advantages</a>
-            <a href="#team">Our Team</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="/apply">Apply</a>
+            <Link to="/" onClick={() => window.scrollTo(0, 0)}>Home</Link>
+            <Link to="/about">About Us</Link>
+            <Link to="/services">Our Services</Link>
+            <Link to={{ pathname: "/", hash: "#advantages" }}>Our Advantages</Link>
+            <Link to={{ pathname: "/", hash: "#team" }}>Our Team</Link>
+            <Link to={{ pathname: "/", hash: "#roadmap" }}>Roadmap</Link>
+            <Link to="/apply">Apply</Link>
           </nav>
         </div>
 
@@ -33,8 +35,8 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold text-[var(--color-text)] mb-3">Contact</h4>
           <nav className="footer-links">
-            <a href="mailto:hello@boostlink.sa">hello@boostlink.sa</a>
-            <a href="/apply">Join Our Team</a>
+            <a href="mailto:info@boostlink.sa">info@boostlink.sa</a>
+            <Link to="/apply">Join Our Team</Link>
           </nav>
         </div>
       </div>
