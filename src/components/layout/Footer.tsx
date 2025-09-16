@@ -25,6 +25,7 @@ export default function Footer() {
             <a href="#advantages">Our Advantages</a>
             <a href="#team">Our Team</a>
             <a href="#roadmap">Roadmap</a>
+            <a href="/apply">Apply</a>
           </nav>
         </div>
 
@@ -33,7 +34,7 @@ export default function Footer() {
           <h4 className="font-semibold text-[var(--color-text)] mb-3">Contact</h4>
           <nav className="footer-links">
             <a href="mailto:hello@boostlink.sa">hello@boostlink.sa</a>
-            <a href="#contact">Start a Project</a>
+            <a href="/apply">Join Our Team</a>
           </nav>
         </div>
       </div>

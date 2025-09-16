@@ -57,6 +57,7 @@ export default function Header() {
             <Link to={{ pathname: "/", hash: "#advantages" }} className="hover:text-[var(--color-text)]">Advantages</Link>
             <Link to={{ pathname: "/", hash: "#roadmap" }} className="hover:text-[var(--color-text)]">Roadmap</Link>
             <Link to={{ pathname: "/", hash: "#team" }} className="hover:text-[var(--color-text)]">Team</Link>
+            <NavLink to="/apply" className="hover:opacity-80">Apply</NavLink>
             <Link to={{ pathname: "/", hash: "#contact" }} className="hover:text-[var(--color-text)]">Contact</Link>
           </nav>
 
@@ -137,6 +138,7 @@ export default function Header() {
                     <Link to={{ pathname: "/", hash: "#advantages" }} onClick={close} className="py-3 px-2 rounded-lg hover:bg-white/5 focus-visible:outline-ring">Advantages</Link>
                     <Link to={{ pathname: "/", hash: "#roadmap" }} onClick={close} className="py-3 px-2 rounded-lg hover:bg-white/5 focus-visible:outline-ring">Roadmap</Link>
                     <Link to={{ pathname: "/", hash: "#team" }} onClick={close} className="py-3 px-2 rounded-lg hover:bg-white/5 focus-visible:outline-ring">Team</Link>
+                    <Link to="/apply" className="block py-2" onClick={close}>Apply</Link>
                     <Link to={{ pathname: "/", hash: "#contact" }} onClick={close} className="py-3 px-2 rounded-lg hover:bg-white/5 focus-visible:outline-ring">Contact</Link>
                   </nav>
 
